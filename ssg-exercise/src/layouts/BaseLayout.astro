@@ -1,0 +1,41 @@
+---
+// Page shell shared by both pages: <head>, navigation, and the shared footer.
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  scripts?: string[];
+}
+
+const { title, description = "Personal portfolio of Thomas Rocha", scripts = [] } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Thomas Rocha" />
+    <title>{title}</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Plain scripts from public/, passed through unchanged by Astro -->
+    <script is:inline src="theme.js"></script>
+    {scripts.map((src) => <script is:inline src={src} defer></script>)}
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main><slot /></main>
+
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Thomas's Web Page" scripts={["fact-panel.js"]}>
+      <section id="hero">
+        <picture>
+          <img src="images/hero.jpg" alt="Hero background image" />
+        </picture>
+        <marquee>
+          <h1>Hi, I'm <strong>Thomas Rocha</strong></h1>
+        </marquee>
+        <p>Student developer at <em>UC San Diego</em></p>
+      </section>
+
+      <section id="intro">
+        <h2>A little about me</h2>
+        <p>
+          I am a 4th year computer science student at <i>UC San Diego</i>. I enjoy 
+          building web applications and learning new technologies. I have experience 
+          with <b>front-end</b> and <b>back-end</b> development, and data analysis.
+          <br />
+          I like to work on projects that challenge me and allow me to learn new skills. 
+          I am always looking for opportunities to grow as a developer and contribute to 
+          meaningful projects.
+          <br />
+          In my free time, I enjoy playing video games, reading, and spending time with
+          friends and family. I love traveling and exploring new places, and I am always looking for new adventures.
+        </p>
+        <p><a href="about.html" class="small-button">Read more about me</a></p>
+      </section>
+
+      <section id="joke-of-the-day">
+        <h2>Joke of the day</h2>
+        <fact-panel id="fact-panel">
+          <!-- Fallback shown only when JavaScript is unavailable -->
+          <h3>Fun facts</h3>
+          <ul>
+            <li>I can juggle, and I built an app that analyzes juggling videos to give feedback.</li>
+            <li>I'm a 4th year computer science student at UC San Diego.</li>
+            <li>When I'm not coding, I'm usually playing video games, reading, or traveling.</li>
+          </ul>
+          <noscript>
+            <p>Enable JavaScript to load live data for this widget.</p>
+          </noscript>
+        </fact-panel>
+        <p>
+          <button type="button" id="toggle-fact-compact" class="small-button" aria-controls="fact-panel" hidden>
+            Hide item details
+          </button>
+        </p>
+      </section>
+    
+</BaseLayout>
